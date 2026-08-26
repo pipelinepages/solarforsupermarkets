@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Solar power systems for supermarkets in Nigeria. Reduce diesel dependence, protect cold storage, and keep checkout operations running." />
+  <title>Solar Power for Supermarkets in Nigeria</title>
+
+  <style>
+    :root{
+      --yellow:#FFD400;
+      --yellow-2:#FFE56A;
+      --black:#080808;
+      --black-2:#111111;
+      --card:#151515;
+      --muted:#AFAFAF;
+      --white:#FFFFFF;
+      --line:#262626;
+      --green:#25D366;
+      --shadow:0 22px 70px rgba(0,0,0,.35);
+      --radius:22px;
+      --max:1160px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:var(--black);
+      color:var(--white);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(calc(100% - 40px), var(--max));
+      margin-inline:auto;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid rgba(255,212,0,.28);
+      background:rgba(255,212,0,.08);
+      color:var(--yellow);
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:8px;
+      height:8px;
+      background:var(--yellow);
+      border-radius:50%;
+      box-shadow:0 0 16px rgba(255,212,0,.8);
+    }
+
+    h1,h2,h3{
+      line-height:1.05;
+      letter-spacing:-.035em;
+    }
+
+    h1{
+      font-size:clamp(2.8rem, 7vw, 6.5rem);
+      max-width:960px;
+    }
+
+    h2{
+      font-size:clamp(2.15rem, 4.8vw, 4.3rem);
+      max-width:850px;
+    }
+
+    h3{
+      font-size:1.2rem;
+      letter-spacing:-.02em;
+    }
+
+    p{
+      color:#D3D3D3;
+    }
+
+    .yellow{
+      color:var(--yellow);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:56px;
+      padding:0 22px;
+      border-radius:12px;
+      font-weight:900;
+      transition:.2s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:var(--yellow);
+      color:#080808;
+      box-shadow:0 12px 40px rgba(255,212,0,.18);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      background:var(--yellow-2);
+    }
+
+    .btn-secondary{
+      background:#151515;
+      color:#fff;
+      border-color:#2B2B2B;
+    }
+
+    .btn-secondary:hover{
+      border-color:#555;
+      transform:translateY(-2px);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(8,8,8,.78);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    nav{
+      height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:950;
+      letter-spacing:-.03em;
+      font-size:1.08rem;
+    }
+
+    .brand-mark{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      background:var(--yellow);
+      position:relative;
+      flex:none;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      background:#080808;
+      border-radius:99px;
+    }
+
+    .brand-mark::before{
+      width:17px;
+      height:5px;
+      left:8px;
+      top:9px;
+    }
+
+    .brand-mark::after{
+      width:11px;
+      height:5px;
+      left:8px;
+      top:19px;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      color:#CFCFCF;
+      font-size:.93rem;
+      font-weight:700;
+    }
+
+    .nav-links a:hover{
+      color:#fff;
+    }
+
+    .nav-cta{
+      min-height:44px;
+      padding-inline:16px;
+      font-size:.9rem;
+    }
+
+    .hero{
+      position:relative;
+      padding:105px 0 90px;
+      border-bottom:1px solid var(--line);
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:620px;
+      height:620px;
+      right:-180px;
+      top:-180px;
+      background:radial-gradient(circle, rgba(255,212,0,.18), transparent 65%);
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .hero-copy p{
+      font-size:clamp(1.08rem, 1.6vw, 1.28rem);
+      max-width:760px;
+      margin-top:24px;
+      color:#C7C7C7;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:32px;
+    }
+
+    .micro{
+      margin-top:17px;
+      font-size:.86rem!important;
+      color:#8F8F8F!important;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, #171717, #101010);
+      border:1px solid #2B2B2B;
+      border-radius:28px;
+      padding:26px;
+      box-shadow:var(--shadow);
+      position:relative;
+    }
+
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius:28px;
+      background:linear-gradient(135deg, rgba(255,212,0,.3), transparent 35%);
+      z-index:-1;
+    }
+
+    .cost-card{
+      background:#0B0B0B;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+      margin-top:18px;
+    }
+
+    .cost-row{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-end;
+      padding:16px 0;
+      border-bottom:1px solid #232323;
+    }
+
+    .cost-row:last-child{
+      border-bottom:0;
+    }
+
+    .cost-row span{
+      color:#A5A5A5;
+      font-size:.9rem;
+    }
+
+    .cost-row strong{
+      color:#fff;
+      text-align:right;
+    }
+
+    .cost-row .loss{
+      color:#FF6464;
+    }
+
+    .cost-row .gain{
+      color:var(--yellow);
+    }
+
+    .section{
+      padding:100px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:40px;
+      align-items:end;
+      margin-bottom:46px;
+    }
+
+    .section-head p{
+      max-width:510px;
+      font-size:1.03rem;
+    }
+
+    .problem-grid,
+    .feature-grid,
+    .bonus-grid,
+    .steps-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid #242424;
+      border-radius:var(--radius);
+      padding:26px;
+      min-height:100%;
+    }
+
+    .card-number{
+      font-size:.76rem;
+      font-weight:900;
+      color:var(--yellow);
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      margin-bottom:18px;
+    }
+
+    .card p{
+      margin-top:12px;
+      font-size:.95rem;
+      color:#AFAFAF;
+    }
+
+    .problem-card{
+      min-height:220px;
+    }
+
+    .problem-card strong{
+      display:block;
+      font-size:1.4rem;
+      margin-bottom:10px;
+    }
+
+    .offer-wrap{
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:40px;
+      align-items:start;
+    }
+
+    .offer-sticky{
+      position:sticky;
+      top:105px;
+    }
+
+    .offer-sticky p{
+      margin-top:22px;
+      max-width:480px;
+    }
+
+    .offer-stack{
+      display:grid;
+      gap:14px;
+    }
+
+    .offer-item{
+      display:grid;
+      grid-template-columns:46px 1fr auto;
+      gap:14px;
+      align-items:center;
+      background:#131313;
+      border:1px solid #282828;
+      border-radius:16px;
+      padding:18px;
+    }
+
+    .check{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      background:rgba(255,212,0,.12);
+      color:var(--yellow);
+      display:grid;
+      place-items:center;
+      font-weight:950;
+    }
+
+    .offer-item small{
+      color:#898989;
+      display:block;
+      margin-top:4px;
+    }
+
+    .offer-item .value{
+      color:#fff;
+      font-size:.78rem;
+      font-weight:900;
+      padding:8px 10px;
+      background:#202020;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+
+    .bonus{
+      background:
+        radial-gradient(circle at top right, rgba(255,212,0,.1), transparent 35%),
+        #111;
+    }
+
+    .bonus .icon{
+      font-size:1.65rem;
+      margin-bottom:36px;
+    }
+
+    .bonus b{
+      display:inline-block;
+      color:var(--yellow);
+      font-size:.75rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .guarantee{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:46px;
+      align-items:center;
+      padding:44px;
+      border-radius:28px;
+      background:var(--yellow);
+      color:#090909;
+    }
+
+    .guarantee p{
+      color:#2C2C2C;
+      font-size:1.04rem;
+    }
+
+    .seal{
+      width:150px;
+      aspect-ratio:1;
+      border-radius:50%;
+      border:2px dashed #080808;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      font-weight:950;
+      transform:rotate(-6deg);
+      margin:auto;
+    }
+
+    .steps-grid{
+      counter-reset:steps;
+    }
+
+    .step{
+      position:relative;
+      padding-top:72px;
+    }
+
+    .step::before{
+      counter-increment:steps;
+      content:"0" counter(steps);
+      position:absolute;
+      top:24px;
+      left:26px;
+      color:var(--yellow);
+      font-size:.85rem;
+      font-weight:950;
+    }
+
+    .calculator{
+      background:#0E0E0E;
+      border:1px solid #262626;
+      border-radius:26px;
+      padding:34px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .calc-copy p{
+      margin-top:16px;
+    }
+
+    .calc-box{
+      border-radius:20px;
+      background:#161616;
+      border:1px solid #282828;
+      padding:22px;
+    }
+
+    .calc-line{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      padding:13px 0;
+      border-bottom:1px solid #292929;
+      font-size:.92rem;
+    }
+
+    .calc-line:last-child{
+      border:0;
+      font-size:1.02rem;
+    }
+
+    .calc-line span{
+      color:#9B9B9B;
+    }
+
+    .calc-line strong{
+      text-align:right;
+    }
+
+    .faq{
+      display:grid;
+      gap:10px;
+      max-width:860px;
+      margin:0 auto;
+    }
+
+    details{
+      background:#121212;
+      border:1px solid #262626;
+      border-radius:14px;
+      padding:0 20px;
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight:850;
+      padding:20px 0;
+      position:relative;
+      padding-right:34px;
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    summary::after{
+      content:"+";
+      position:absolute;
+      right:0;
+      top:18px;
+      color:var(--yellow);
+      font-size:1.45rem;
+      line-height:1;
+    }
+
+    details[open] summary::after{
+      content:"–";
+    }
+
+    details p{
+      padding:0 0 20px;
+      color:#AFAFAF;
+    }
+
+    .final-cta{
+      text-align:center;
+      padding:110px 0;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .final-cta::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at center, rgba(255,212,0,.11), transparent 52%);
+      pointer-events:none;
+    }
+
+    .final-cta h2{
+      margin-inline:auto;
+      max-width:900px;
+    }
+
+    .final-cta p{
+      max-width:650px;
+      margin:22px auto 0;
+    }
+
+    .final-cta .hero-actions{
+      justify-content:center;
+    }
+
+    .scarcity{
+      margin-top:18px;
+      font-size:.88rem;
+      color:#929292;
+    }
+
+    footer{
+      padding:30px 0;
+      border-top:1px solid #202020;
+      color:#777;
+      font-size:.84rem;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 900px){
+      .hero-grid,
+      .offer-wrap,
+      .guarantee,
+      .calculator{
+        grid-template-columns:1fr;
+      }
+
+      .problem-grid,
+      .feature-grid,
+      .bonus-grid,
+      .steps-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .offer-sticky{
+        position:static;
+      }
+
+      .section-head{
+        display:block;
+      }
+
+      .section-head p{
+        margin-top:18px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .seal{
+        width:120px;
+      }
+    }
+
+    @media (max-width: 620px){
+      .container{
+        width:min(calc(100% - 28px), var(--max));
+      }
+
+      nav{
+        height:66px;
+      }
+
+      .hero{
+        padding:72px 0 64px;
+      }
+
+      .section{
+        padding:72px 0;
+      }
+
+      .problem-grid,
+      .feature-grid,
+      .bonus-grid,
+      .steps-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .offer-item{
+        grid-template-columns:42px 1fr;
+      }
+
+      .offer-item .value{
+        grid-column:2;
+        justify-self:start;
+      }
+
+      .guarantee{
+        padding:28px;
+      }
+
+      .final-cta{
+        padding:82px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="brand">
+        <span class="brand-mark"></span>
+        <span>YOUR SOLAR COMPANY</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#problem">Why Solar</a>
+        <a href="#offer">What You Get</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <a class="btn btn-primary nav-cta" href="#assessment">Get Free Assessment</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Solar power built for Nigerian supermarkets</span>
+
+        <h1 style="margin-top:22px;">
+          Your supermarket isn't just burning diesel.
+          <span class="yellow">It's burning profit.</span>
+        </h1>
+
+        <p>
+          We design and install complete solar power systems for supermarkets —
+          built around your freezers, refrigerators, lighting, POS terminals,
+          CCTV, offices and other critical loads.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#assessment" class="btn btn-primary">Request a Free Energy Assessment →</a>
+          <a href="#offer" class="btn btn-secondary">See Everything Included</a>
+        </div>
+
+        <p class="micro">
+          No generic “one-size-fits-all” package. Your system is designed around your actual supermarket load.
+        </p>
+      </div>
+
+      <aside class="hero-card">
+        <span class="eyebrow">The real cost of unreliable power</span>
+
+        <div class="cost-card">
+          <div class="cost-row">
+            <span>Generator fuel</span>
+            <strong class="loss">Recurring expense</strong>
+          </div>
+          <div class="cost-row">
+            <span>Generator servicing</span>
+            <strong class="loss">Recurring expense</strong>
+          </div>
+          <div class="cost-row">
+            <span>Cold-chain interruptions</span>
+            <strong class="loss">Stock at risk</strong>
+          </div>
+          <div class="cost-row">
+            <span>Checkout downtime</span>
+            <strong class="loss">Sales at risk</strong>
+          </div>
+          <div class="cost-row">
+            <span>Solar system</span>
+            <strong class="gain">Power you own</strong>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="problem">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Why this matters</span>
+          <h2 style="margin-top:18px;">
+            A supermarket cannot afford to treat power like an afterthought.
+          </h2>
+        </div>
+
+        <p>
+          When electricity fails, the problem is bigger than darkness.
+          Refrigeration, payments, security and customer experience can all be affected at once.
+        </p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="card problem-card">
+          <div class="card-number">01 / Cold storage</div>
+          <strong>Protect perishable stock.</strong>
+          <p>Keep refrigerators and freezers supported through outages instead of depending entirely on generator response.</p>
+        </div>
+
+        <div class="card problem-card">
+          <div class="card-number">02 / Checkout</div>
+          <strong>Keep customers moving.</strong>
+          <p>Support POS terminals, tills, barcode systems, routers and essential checkout equipment when grid power disappears.</p>
+        </div>
+
+        <div class="card problem-card">
+          <div class="card-number">03 / Operating cost</div>
+          <strong>Reduce generator dependence.</strong>
+          <p>Shift more of your daily electricity demand to solar and batteries instead of paying for fuel hour after hour.</p>
+        </div>
+
+        <div class="card problem-card">
+          <div class="card-number">04 / Security</div>
+          <strong>Keep surveillance online.</strong>
+          <p>Maintain power for CCTV, access control, exterior lighting and other critical security systems.</p>
+        </div>
+
+        <div class="card problem-card">
+          <div class="card-number">05 / Customer experience</div>
+          <strong>Stay bright, cool and operational.</strong>
+          <p>A reliable store feels more professional than one constantly switching between blackout and generator noise.</p>
+        </div>
+
+        <div class="card problem-card">
+          <div class="card-number">06 / Business continuity</div>
+          <strong>Build around your actual loads.</strong>
+          <p>Your system is sized around what must stay on, what can be scheduled and what should remain on backup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="offer">
+    <div class="container offer-wrap">
+      <div class="offer-sticky">
+        <span class="eyebrow">The supermarket solar package</span>
+        <h2 style="margin-top:18px;">
+          One system.
+          <span class="yellow">Designed around the business.</span>
+        </h2>
+
+        <p>
+          Instead of selling you panels first and asking questions later, we start with the supermarket:
+          what you run, when you run it, what cannot go off and how much generator dependence you want to eliminate.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#assessment">Book the Free Assessment →</a>
+        </div>
+      </div>
+
+      <div class="offer-stack">
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <strong>On-site energy audit</strong>
+            <small>We measure your loads, operating pattern and critical equipment.</small>
+          </div>
+          <span class="value">Included</span>
+        </div>
+
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <strong>Custom supermarket solar design</strong>
+            <small>Panels, inverter and batteries sized around your real usage.</small>
+          </div>
+          <span class="value">Included</span>
+        </div>
+
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <strong>Professional installation</strong>
+            <small>Complete setup, protection, cabling and commissioning.</small>
+          </div>
+          <span class="value">Included</span>
+        </div>
+
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <strong>Generator backup integration</strong>
+            <small>Your existing generator can remain part of the backup strategy where appropriate.</small>
+          </div>
+          <span class="value">Included</span>
+        </div>
+
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <strong>Critical-load prioritisation</strong>
+            <small>Cold storage, checkout, security and essential lighting are planned deliberately.</small>
+          </div>
+          <span class="value">Included</span>
+        </div>
+
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <strong>System handover & staff walkthrough</strong>
+            <small>Your team knows what the system does and how to use it correctly.</small>
+          </div>
+          <span class="value">Included</span>
+        </div>
+
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <strong>After-installation support</strong>
+            <small>You are not left alone after commissioning.</small>
+          </div>
+          <span class="value">Included</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Free extras</span>
+          <h2 style="margin-top:18px;">Remove the reasons to delay.</h2>
+        </div>
+
+        <p>
+          The extras are designed to make the move from generator dependence to a more reliable power setup easier for the supermarket.
+        </p>
+      </div>
+
+      <div class="bonus-grid">
+        <div class="card bonus">
+          <div class="icon">⚡</div>
+          <b>Free Extra #1</b>
+          <h3>Energy Waste Review</h3>
+          <p>We identify avoidable electricity waste and show you where simple changes can reduce unnecessary load.</p>
+        </div>
+
+        <div class="card bonus">
+          <div class="icon">📊</div>
+          <b>Free Extra #2</b>
+          <h3>Generator Reduction Plan</h3>
+          <p>A practical operating plan showing how solar, batteries, grid and generator can work together.</p>
+        </div>
+
+        <div class="card bonus">
+          <div class="icon">📱</div>
+          <b>Free Extra #3</b>
+          <h3>Remote Monitoring Setup</h3>
+          <p>Where supported by the selected equipment, we configure monitoring so system performance is easier to track.</p>
+        </div>
+
+        <div class="card bonus">
+          <div class="icon">💡</div>
+          <b>Free Extra #4</b>
+          <h3>Critical Lighting Review</h3>
+          <p>We identify the lighting that matters most during outages and factor it into the power plan.</p>
+        </div>
+
+        <div class="card bonus">
+          <div class="icon">🧊</div>
+          <b>Free Extra #5</b>
+          <h3>Cold-Load Priority Mapping</h3>
+          <p>Your refrigeration and freezer loads are separated into priorities so the system protects what matters most.</p>
+        </div>
+
+        <div class="card bonus">
+          <div class="icon">🛠️</div>
+          <b>Free Extra #6</b>
+          <h3>Post-Install Checkup</h3>
+          <p>We review system operation after installation and address setup issues within the agreed support period.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="guarantee">
+        <div class="seal">
+          SYSTEM<br>COMMISSIONING<br>GUARANTEE
+        </div>
+
+        <div>
+          <span style="font-size:.8rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase;">
+            Risk reversal
+          </span>
+
+          <h2 style="margin-top:12px;max-width:760px;">
+            We don't disappear after the panels go up.
+          </h2>
+
+          <p style="margin-top:20px;max-width:760px;">
+            Your installation is tested and commissioned against the agreed system design before handover.
+            If an installation-related issue is identified during the agreed commissioning/support period,
+            we return to correct it under the terms of your project agreement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">How it works</span>
+          <h2 style="margin-top:18px;">From diesel dependence to a power plan.</h2>
+        </div>
+
+        <p>
+          You do not need to understand batteries, inverter sizing or solar calculations.
+          That is our job.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="card step">
+          <h3>Request the assessment</h3>
+          <p>Tell us about your supermarket, location and current power situation.</p>
+        </div>
+
+        <div class="card step">
+          <h3>We inspect your loads</h3>
+          <p>We look at refrigeration, lighting, POS, CCTV, offices and other equipment.</p>
+        </div>
+
+        <div class="card step">
+          <h3>Receive your system plan</h3>
+          <p>You get a recommended configuration based on your goals and operating pattern.</p>
+        </div>
+
+        <div class="card step">
+          <h3>Approve & schedule</h3>
+          <p>Once scope and commercial terms are agreed, installation is scheduled.</p>
+        </div>
+
+        <div class="card step">
+          <h3>Installation & testing</h3>
+          <p>The system is installed, protected, configured and tested before handover.</p>
+        </div>
+
+        <div class="card step">
+          <h3>Start using more solar</h3>
+          <p>Your store begins shifting more of its electricity demand away from generator fuel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calculator">
+        <div class="calc-copy">
+          <span class="eyebrow">Think in ownership, not fuel</span>
+          <h2 style="margin-top:18px;">What does another year of generator dependence cost?</h2>
+          <p>
+            The assessment helps you compare your current operating pattern against a properly designed solar option.
+            We do not assume the answer before measuring your loads.
+          </p>
+        </div>
+
+        <div class="calc-box">
+          <div class="calc-line">
+            <span>Fuel</span>
+            <strong>₦_____ / month</strong>
+          </div>
+          <div class="calc-line">
+            <span>Servicing & repairs</span>
+            <strong>₦_____ / month</strong>
+          </div>
+          <div class="calc-line">
+            <span>Hours on generator</span>
+            <strong>_____ hrs / day</strong>
+          </div>
+          <div class="calc-line">
+            <span>12-month generator cost</span>
+            <strong class="yellow">Let's calculate it.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head" style="justify-content:center;text-align:center;">
+        <div>
+          <span class="eyebrow">Frequently asked questions</span>
+          <h2 style="margin:18px auto 0;">Before you book the assessment.</h2>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Can solar run supermarket freezers and refrigerators?</summary>
+          <p>
+            Yes, when the system is properly designed for the equipment's running and starting requirements.
+            That is why we assess the actual appliances instead of relying on a generic package.
+          </p>
+        </details>
+
+        <details>
+          <summary>Do I have to remove my generator?</summary>
+          <p>
+            Not necessarily. Many businesses keep a generator as another backup source.
+            The system can be designed so solar and batteries carry more of the load while the generator is retained where useful.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can we install without shutting down the supermarket?</summary>
+          <p>
+            Installation is planned around the site and operating requirements.
+            Any necessary interruption is discussed in advance so disruption can be minimised.
+          </p>
+        </details>
+
+        <details>
+          <summary>How large a solar system do I need?</summary>
+          <p>
+            It depends on your refrigeration, lighting, checkout equipment, operating hours,
+            desired backup duration and which loads you want solar to support. The assessment determines this.
+          </p>
+        </details>
+
+        <details>
+          <summary>How much does the system cost?</summary>
+          <p>
+            Commercial solar pricing depends heavily on load size, battery capacity, inverter requirements and installation conditions.
+            We first assess the supermarket, then recommend a system and quote based on the actual scope.
+          </p>
+        </details>
+
+        <details>
+          <summary>Do you provide after-sales support?</summary>
+          <p>
+            Yes. The project includes system handover and an agreed post-installation support arrangement.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="assessment">
+    <div class="container">
+      <span class="eyebrow">Start here</span>
+
+      <h2 style="margin-top:18px;">
+        Stop paying endlessly for power you could be producing yourself.
+      </h2>
+
+      <p>
+        Request a supermarket energy assessment and find out what it would take
+        to reduce generator dependence while keeping your critical loads running.
+      </p>
+
+      <div class="hero-actions">
+        <!-- Replace the phone number below with your WhatsApp number -->
+        <a
+          class="btn btn-primary"
+          href="https://wa.me/2349000000000?text=Hello%2C%20I%20want%20a%20solar%20energy%20assessment%20for%20my%20supermarket."
+        >
+          Request Assessment on WhatsApp →
+        </a>
+
+        <a class="btn btn-secondary" href="tel:+2349000000000">
+          Call +234 900 000 0000
+        </a>
+      </div>
+
+      <div class="scarcity">
+        Commercial projects are accepted based on engineering capacity and installation schedule.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 Your Solar Company. All rights reserved.</span>
+    <span>Solar systems for supermarkets & commercial facilities in Nigeria.</span>
+  </div>
+</footer>
+
+</body>
+</html>
