@@ -6,6 +6,10 @@
   <meta name="description" content="Solar power systems for supermarkets in Nigeria. Reduce diesel dependence, protect cold storage, and keep checkout operations running." />
   <title>Solar Power for Supermarkets in Nigeria</title>
 
+  <!-- FAVICON - todahslogo.png -->
+  <link rel="icon" type="image/png" href="todahslogo.png" />
+  <link rel="shortcut icon" href="todahslogo.png" />
+
   <style>
     :root{
       --yellow:#FFD400;
@@ -168,35 +172,27 @@
       font-size:1.08rem;
     }
 
-    .brand-mark{
-      width:34px;
+    /* NAVBAR LOGO - using todahslogo.png */
+    .brand-logo{
       height:34px;
-      border-radius:10px;
-      background:var(--yellow);
-      position:relative;
-      flex:none;
+      width:auto;
+      border-radius:8px;
+      object-fit:contain;
+      display:block;
     }
 
-    .brand-mark::before,
-    .brand-mark::after{
-      content:"";
-      position:absolute;
-      background:#080808;
-      border-radius:99px;
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.2;
     }
 
-    .brand-mark::before{
-      width:17px;
-      height:5px;
-      left:8px;
-      top:9px;
-    }
-
-    .brand-mark::after{
-      width:11px;
-      height:5px;
-      left:8px;
-      top:19px;
+    .brand-text .sub{
+      font-size:.58rem;
+      font-weight:700;
+      color:#AFAFAF;
+      text-transform:uppercase;
+      letter-spacing:.08em;
     }
 
     .nav-links{
@@ -742,7 +738,11 @@
   <div class="container">
     <nav>
       <a href="#" class="brand">
-        <span class="brand-mark"></span>
+        <img src="todahslogo.png" alt="Todahs Solar Energy Logo" class="brand-logo" />
+        <span class="brand-text">
+          Solar for Supermarkets
+          <span class="sub">by Todah's Solar Energy</span>
+        </span>
       </a>
 
       <div class="nav-links">
@@ -781,7 +781,7 @@
         </div>
 
         <p class="micro">
-          No generic “one-size-fits-all” package. Your system is designed around your actual supermarket load.
+          No generic "one-size-fits-all" package. Your system is designed around your actual supermarket load.
         </p>
       </div>
 
